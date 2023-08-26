@@ -1,0 +1,44 @@
+syntax = "proto3";
+package nama.nama;
+
+option go_package = "nama/x/nama/types";
+
+// Msg defines the Msg service.
+service Msg {
+    rpc SetNewAdmin(MsgSetNewAdmin) returns(MsgSetNewAdminResponse);
+    rpc SetNamaServiceCost(MsgSetNamaServiceCost) returns (MsgSetNamaServiceCostResponse);
+    rpc ReserveNama(MsgReserveNama) returns (MsgReserveNamaResponse);
+    rpc AcquireNama(MsgAcquireNama) returns (MsgAcquireNamaResponse);
+}
+
+message MsgSetNewAdmin {
+    string creator=1;
+    string newAdmin=2;
+}
+
+message MsgSetNewAdminResponse {}
+
+message MsgSetNamaServiceCost {
+    string creator=1;
+    uint64 newCost=2;
+}
+
+message MsgSetNamaServiceCostResponse {}
+
+message MsgReserveNama {
+    string creator =1;
+    string nama=2;
+    uint64 price=3;
+}
+
+message MsgReserveNamaResponse {
+    uint64 namaId=1;
+}
+
+message MsgAcquireNama {
+    string creator =1;
+    uint64 namaId =2;
+    uint64 price=3;
+}
+
+message MsgAcquireNamaResponse {}

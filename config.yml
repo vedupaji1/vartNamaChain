@@ -1,0 +1,26 @@
+version: 1
+accounts:
+- name: alice
+  coins:
+  - 20000token
+  - 200000000stake
+- name: bob
+  coins:
+  - 10000token
+  - 100000000stake
+- name: admin
+  coins:
+  - 10000token
+  - 100000000stake
+  mnemonic: float wreck renew van fatigue mirror silver valley ability space seed urban early suit hurry method acid armed off gate eager aspect city scare
+client:
+  openapi:
+    path: docs/static/openapi.yml
+faucet:
+  name: bob
+  coins:
+  - 5token
+  - 100000stake
+validators:
+- name: alice
+  bonded: 100000000stake

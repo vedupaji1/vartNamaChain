@@ -1,0 +1,26 @@
+syntax = "proto3";
+package nama.nama;
+
+option go_package = "nama/x/nama/types";
+
+message NamaAdmin {
+    string value=1;
+}
+
+message NamaData {
+    string nama=1;
+    string owner=2;
+    uint64 purchasedIn=3;
+}
+
+message NamaId {
+    uint64 value=1;
+}
+
+message TotalNama {
+    uint64 value=1;
+}
+
+message NamaReserveCost {
+    uint64 value=1;
+}

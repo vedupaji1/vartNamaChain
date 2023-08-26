@@ -1,0 +1,88 @@
+syntax = "proto3";
+package nama.nama;
+
+import "gogoproto/gogo.proto";
+import "google/api/annotations.proto";
+import "cosmos/base/query/v1beta1/pagination.proto";
+import "nama/nama/params.proto";
+import "nama/nama/namaData.proto";
+
+option go_package = "nama/x/nama/types";
+
+// Query defines the gRPC querier service.
+service Query {
+  // Parameters queries the parameters of the module.
+  rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
+    option (google.api.http).get = "/nama/nama/params";
+  }
+  rpc NamaAdmin(QueryNamaAdminRequest) returns (QueryNamaAdminResponse) {
+    option (google.api.http).get = "/nama/nama/namaAdmin";
+  }
+  rpc NamaCost(QueryNamaCostRequest) returns (QueryNamaCostResponse) {
+    option (google.api.http).get = "/nama/nama/namaCost";
+  }
+  rpc TotalNama(QueryTotalNamaRequest) returns (QueryTotalNamaResponse) {
+    option (google.api.http).get = "/nama/nama/totalNama";
+  }
+  rpc UserNamaBalance(QueryUserNamaBalanceRequest) returns (QueryUserNamaBalanceResponse) {
+    option (google.api.http).get = "/nama/nama/userNamaBalance";
+  }
+  rpc NamaData(QueryNamaDataRequest) returns (QueryNamaDataResponse) {
+    option (google.api.http).get = "/nama/nama/namaData";
+  }
+  rpc NamaId(QueryNamaIdRequest) returns (QueryNamaIdResponse) {
+    option (google.api.http).get = "/nama/nama/namaId";
+  }
+}
+
+// QueryParamsRequest is request type for the Query/Params RPC method.
+message QueryParamsRequest {}
+
+// QueryParamsResponse is response type for the Query/Params RPC method.
+message QueryParamsResponse {
+  // params holds all the parameters of this module.
+  Params params = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryNamaAdminRequest {}
+
+message QueryNamaAdminResponse {
+  string value=1;
+}
+
+
+message QueryNamaCostRequest {}
+
+message QueryNamaCostResponse {
+  uint64 value=1;
+}
+
+message QueryTotalNamaRequest {}
+
+message QueryTotalNamaResponse {
+  uint64 value =1;
+}
+
+message QueryUserNamaBalanceRequest {
+  string userAddress =1;
+}
+
+message QueryUserNamaBalanceResponse {
+  uint64 value =1;
+}
+
+message QueryNamaDataRequest {
+  uint64 namaId =1;
+}
+
+message QueryNamaDataResponse {
+  NamaData data =1;
+}
+
+message QueryNamaIdRequest {
+  string nama =1;
+}
+
+message QueryNamaIdResponse {
+  uint64 namaId =1;
+}

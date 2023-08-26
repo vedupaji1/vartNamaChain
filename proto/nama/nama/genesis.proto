@@ -1,0 +1,15 @@
+syntax = "proto3";
+package nama.nama;
+
+import "gogoproto/gogo.proto";
+import "nama/nama/params.proto";
+import "nama/nama/namaData.proto";
+
+option go_package = "nama/x/nama/types";
+
+// GenesisState defines the nama module's genesis state.
+message GenesisState {
+  Params params = 1 [(gogoproto.nullable) = false];
+  uint64 namaServiceCost=2;
+  repeated NamaData namaData=3;
+}
